@@ -3,7 +3,7 @@ package agenda;
 /**
  * Created by dcatalans on 21/09/16.
  */
-public class Agenda {
+class Agenda {
     private int any;
 
     public Agenda(int any, Pagina[] paginas) {
@@ -80,7 +80,9 @@ class Pagina{
 
     public void escriure_cita(){}
 
-    public void esborrar_cita(){}
+    public void esborrar_cita(String id){
+
+    }
 
 }
 
