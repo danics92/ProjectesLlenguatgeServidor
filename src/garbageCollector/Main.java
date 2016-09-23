@@ -1,8 +1,5 @@
 package garbageCollector;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by dcatalans on 23/09/16.
  */
