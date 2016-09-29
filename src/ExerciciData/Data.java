@@ -7,7 +7,6 @@ public class Data {
 
     //#1.- atributs de classe.
     private static final String SEPARADOR = "-";
-    private String data;
 
     private int dia;
     private int mes;
@@ -33,17 +32,24 @@ public class Data {
         this.any = any;
     }
 
-    /*public String getData() {
-        return data;
+    public int getAny() {
+        return this.any;
+    }
+    public String getData() {
+        return this.dia+SEPARADOR+this.mes+SEPARADOR+this.any;
     }
 
     public void setData(String data) throws Exception {
         //#2.- Comprova si la data introduida conté guions
         if (!data.contains(SEPARADOR)) throw new Exception();
-        this.data = data;
-    }*/
 
-    private void descomposaData(){
+        int[] dades = descomposaData(data);
+        this.dia = dades[0];
+        this.mes = dades[1];
+        this.any = dades[2];
+    }
+
+    private int[] descomposaData(String data){
 
         String[] dataDescomposada = data.split(SEPARADOR);
         int[] dataDescomposadaInt = new int[dataDescomposada.length];
@@ -51,24 +57,19 @@ public class Data {
         this.mes = dataDescomposadaInt[1] = Integer.parseInt(dataDescomposada[1]);
         this.any = dataDescomposadaInt[2] = Integer.parseInt(dataDescomposada[2]);
 
+        return dataDescomposadaInt;
+
     }
     /*public int getAny(){
         return data != null ? descomposaData()[2] : 0;
     }*/
-    public int getAny() {
-        return this.any;
-    }
+
 }
 
 class AnyDeTresPas extends Data {
 
     public boolean isTrespas() {
-        if(getAny() % 2 == 0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return getAny() % 2 == 0;
     }
 
 }
